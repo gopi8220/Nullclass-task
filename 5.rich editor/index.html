@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@1.3.6/dist/quill.snow.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css">
+        
+</head>
+<body>
+
+<div class="editor-container">
+    <div id="editor"></div>
+    <button onclick="getPostContent()">Post Question</button>
+</div>
+
+<div class="video-container">
+    <label for="videoInput">Embed Video:</label>
+    <input type="text" id="videoInput" placeholder="Paste video URL">
+    <button onclick="embedVideo()">Embed Video</button>
+    <div id="videoPreview"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/quill@1.3.6/dist/quill.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/prism.js"></script>
+<script>
+    // Initialize Quill
+    var quill = new Quill('#editor', {
+        theme: 'snow',
+        modules: {
+            syntax: true,
+            toolbar: [
+                [{ 'header': [1, 2, false] }],
+                ['bold', 'italic', 'underline', 'code-block'],
+                [{ 'color': [] }, { 'background': [] }],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                ['image', 'link']
+            ]
+        }
+    });
+
+    // Function to get the post content
+    function getPostContent() {
+        var content = quill.root.innerHTML;
+        console.log('Posted Content:', content);
+        // Send the content to your server or perform other actions
+    }
+
+    // Function to embed video
+    function embedVideo() {
+        var videoInput = document.getElementById('videoInput').value;
+        var videoPreview = document.getElementById('videoPreview');
+        
+        if (videoInput) {
+            // Assuming YouTube video URL format
+            var videoId = videoInput.split('v=')[1];
+            var embedCode = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
+  
+            
+    
+            videoPreview.innerHTML = embedCode;
+        } else {
+            videoPreview.innerHTML = 'Please enter a video URL.';
+        }
+    }
+</script>
+
+</body>
+</html>

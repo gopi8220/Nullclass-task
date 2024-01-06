@@ -1,0 +1,63 @@
+body {
+    background-image: url('../public/bg3.jpg');
+    background-size: cover;
+    background-position: center;
+    height:120vh;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.editor-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #090909;
+    border-radius: 8px;
+}
+
+#editor {
+    height: 200px;
+    border: 1px solid #1e1b1b;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor:pointer;
+}
+
+button:hover {
+    background-color: #0c8312;
+}
+
+.video-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #1d1919;
+    border-radius: 8px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#videoInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+#videoPreview {
+    max-width: 100%;
+    height: auto;
+}
