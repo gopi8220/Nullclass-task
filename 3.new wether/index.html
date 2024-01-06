@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time-based Background Change</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex; 
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+      transition: background-color 1s ease;
+    }
+
+    
+    .morning {
+      /* background-color: #87CEEB; Light Blue */
+      background-image: url(../media/mor.jpg);
+      height: 100%;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    .afternoon {
+     
+      background-image: url(../media/after.jpg);
+       height: 100vh; 
+      /* content: fix; */
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    .evening {
+      
+      background-image: url(../media/eve.jpg);
+       height: 100vh; 
+      /* content: fix; */
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    .night {
+        background-image: url(../media/night.jpg);
+       height: 100vh; 
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  function updateBackground() {
+    const currentTime = new Date().getHours();
+    const body = document.body;
+
+    if (currentTime >= 6 && currentTime < 12) {
+      body.className = 'morning';
+      document.body.innerHTML += '<h1>Good Morning!</h1>';
+    } else if (currentTime >= 12 && currentTime < 18) {
+      body.className = 'afternoon';
+      document.body.innerHTML += '<h1>Good Afternoon!</h1>';
+    } else if (currentTime >= 18 && currentTime < 24) {
+      body.className = 'evening';
+      document.body.innerHTML += '<h1>Good Evening!</h1>';
+    } else {
+      body.className = 'night';
+      document.body.innerHTML += '<h1>Good Night!</h1>';
+    }
+  }
+
+  updateBackground(); 
+</script>
+
+</body>
+</html>

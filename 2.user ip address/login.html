@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login History</title>
+</head>
+<body>
+
+    <h2>Login History:</h2>
+    
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>IP Address</th>
+            <th>Browser</th>
+            <th>OS</th>
+            <th>Device Type</th>
+            <th>Login Time</th>
+        </tr>
+        
+        <!-- Loop through login history and display each entry -->
+        <tr th:each="entry : ${loginHistory}">
+            <td th:text="${entry.id}"></td>
+            <td th:text="${entry.ipAddress}"></td>
+            <td th:text="${entry.browser}"></td>
+            <td th:text="${entry.os}"></td>
+            <td th:text="${entry.deviceType}"></td>
+            <td th:text="${entry.loginTime}"></td>
+        </tr>
+    </table>
+
+</body>
+</html>
